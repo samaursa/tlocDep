@@ -5,7 +5,7 @@ cd %TLOC_DEP_PATH%\ci\
 
 SET buildConfig=debug
 SET buildPath=%TLOC_DEP_PATH%\proj\VS\2008\tlocDep.sln
-SET buildType=build
+SET buildType=rebuild
 SET platform=Win32
 
 cd %TLOC_DEP_PATH%\src\
