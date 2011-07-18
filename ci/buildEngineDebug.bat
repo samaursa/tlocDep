@@ -1,29 +1,18 @@
 @echo off
-
 cd..
 SET TLOC_DEP_PATH=%CD%
-cd ci
+cd %TLOC_DEP_PATH%\ci\
 
 SET buildConfig=debug
-SET buildPath=%TLOC_DEP_PATH%\proj\vs\2008\TwoLocDep.sln
+SET buildPath=%TLOC_DEP_PATH%\proj\VS\2008\tlocDep.sln
 SET buildType=build
+SET platform=Win32
 
-SET _buildType=Building
-IF "%buildType%"=="rebuild" (
-SET _buildType=Re-building
-)
-
-ECHO -------------------------------------------------------------------------------
-ECHO Extracting SDKs
-ECHO -------------------------------------------------------------------------------
+cd %TLOC_DEP_PATH%\src\
 CALL %TLOC_DEP_PATH%\bat\extractSDKs.bat
 
-ECHO -------------------------------------------------------------------------------
-ECHO %_buildType% %buildPath%
-ECHO -------------------------------------------------------------------------------
-MSBuild %buildPath% /t:%buildType% /p:Configuration=%buildConfig% /maxcpucount:4 /clp:PerformanceSummary /nologo
+CALL %TLOC_DEP_PATH%\ci\buildEngine.bat
 
-PAUSE
-
+cd %TLOC_DEP_PATH%\ci\
 ECHO.
 ECHO -------------------------------------------------------------------------------

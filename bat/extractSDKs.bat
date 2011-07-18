@@ -1,4 +1,9 @@
 @echo off
+
+ECHO -------------------------------------------------------------------------------
+ECHO Extracting SDKs
+ECHO -------------------------------------------------------------------------------
+
 :EXTRACT_SDKS
 set nextSdk=philsquared-Catch-f721a96
 CALL:INSTALL
