@@ -71,6 +71,7 @@ c:
 SET _buildType=Building
 IF "%buildType%"=="rebuild" (
 SET _buildType=Re-building
+SET buildType=/rebuild
 ) ELSE (
 SET buildType=
 )
@@ -79,11 +80,7 @@ ECHO ---------------------------------------------------------------------------
 ECHO %_buildType% %buildPath%
 ECHO -------------------------------------------------------------------------------
 
-ECHO %ERRORLEVEL%
-
-vcbuild /%buildType% /upgrade %buildPath% "%buildConfig%|%platform%"
-
-ECHO %ERRORLEVEL%
+vcbuild %buildType% /upgrade %buildPath% "%buildConfig%|%platform%"
 
 cd %currDir%
 cd %WORKSPACE_PATH%\ci\
