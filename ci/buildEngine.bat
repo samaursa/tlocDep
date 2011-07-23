@@ -4,6 +4,7 @@
 
 :: The following must be changed for each engine depending on the engine's
 :: environment variables
+cd..
 SET TLOC_DEP_PATH=%CD%
 SET WORKSPACE_PATH=%TLOC_DEP_PATH%
 SET buildPath=%WORKSPACE_PATH%\proj\VS\2008\tlocDep.sln
