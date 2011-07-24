@@ -81,7 +81,7 @@ ECHO ---------------------------------------------------------------------------
 ECHO %_buildType% %buildPath%
 ECHO -------------------------------------------------------------------------------
 
-%VcBuildPath% %buildType% /upgrade %buildPath% "%buildConfig%|/%platform%" | %WORKSPACE_PATH%\ci\tee.exe %WORKSPACE_PATH%\ci\output.txt
+%VcBuildPath% %buildType% /upgrade %buildPath% "%buildConfig%|%platform%" | %WORKSPACE_PATH%\ci\tee.exe %WORKSPACE_PATH%\ci\output.txt
 
 :: Visual studio does not set the errorlevel flag, so we will search output.txt instead
 :: We search for "0 Projects Failed" and error
