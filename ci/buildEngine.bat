@@ -80,18 +80,24 @@ IF "%buildType%"=="rebuild" (
 ECHO -------------------------------------------------------------------------------
 ECHO %_buildType% %buildPath%
 ECHO -------------------------------------------------------------------------------
-
 %VcBuildPath% %buildType% /upgrade %buildPath% "%buildConfig%|%platform%" | %WORKSPACE_PATH%\ci\tee.exe %WORKSPACE_PATH%\ci\output.txt
 
 :: Visual studio does not set the errorlevel flag, so we will search output.txt instead
 :: We search for "0 Projects Failed" and error
-FINDSTR /C:"0 Projects Failed" %WORKSPACE_PATH%\ci\output.txt
-
-IF NOT %ERRORLEVEL%==0 (
-FINDSTR "error" %WORKSPACE_PATH%\ci\output.txt
-)
+FINDSTR /C:"0 Projects failed" %WORKSPACE_PATH%\ci\output.txt
 
 SET buildFailed=%ERRORLEVEL%
+
+IF NOT %ERRORLEVEL%==0 (
+	FINDSTR /C:"error" %WORKSPACE_PATH%\ci\output.txt
+	
+	:: Now if ERRORLEVEL==0 we need to put buildFailed to 1
+	IF %ERRORLEVEL%==0 (
+		SET buildFailed=1
+	)
+)
+
+ECHO Build Status: %buildFailed%
 
 :: Delete output.txt
 del %WORKSPACE_PATH%\ci\output.txt
@@ -99,8 +105,8 @@ del %WORKSPACE_PATH%\ci\output.txt
 :EXIT_BUILD
 IF %buildFailed%==0 (
 	%ColorOk%
-	EXIT /b 0
+	EXIT /b 0	
 ) ELSE (
 	%ColorError%
-	EXIT /b %buildFailed%
+	EXIT /b %buildFailed%	
 )
