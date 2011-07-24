@@ -102,5 +102,5 @@ IF %buildFailed%==0 (
 	EXIT /b 0
 ) ELSE (
 	%ColorError%
-	EXIT /b %ERRORLEVEL%
+	EXIT /b %buildFailed%
 )
