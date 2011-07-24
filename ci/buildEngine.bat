@@ -60,11 +60,13 @@ IF NOT "%platform%"=="Win32" (
 	EXIT /B
 )
 
-:START_BUILDING
+:EXTRACT_SDKS
 
+:: Extract SDKs first
 CALL %WORKSPACE_PATH%\bat\extractSDKs.bat
 
-SET currDir=%CD%
+:START_BUILDING
+
 SET VcBuildPath="%VS90COMNTOOLS%\..\..\VC\vcpackages\vcbuild.exe"
 
 SET _buildType=Building
