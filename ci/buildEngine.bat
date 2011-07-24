@@ -81,21 +81,23 @@ ECHO ---------------------------------------------------------------------------
 ECHO %_buildType% %buildPath%
 ECHO -------------------------------------------------------------------------------
 
-%VcBuildPath% %buildType% /upgrade %buildPath% "%buildConfig%|%platform%" | %WORKSPACE_PATH%\ci\tee.exe %WORKSPACE_PATH%\ci\output.txt
+%VcBuildPath% %buildType% /upgrade %buildPath% "%buildConfig%|/%platform%" | %WORKSPACE_PATH%\ci\tee.exe %WORKSPACE_PATH%\ci\output.txt
 
 :: Visual studio does not set the errorlevel flag, so we will search output.txt instead
 :: We search for "0 Projects Failed" and error
 FINDSTR /C:"0 Projects Failed" %WORKSPACE_PATH%\ci\output.txt
 
-IF %ERRORLEVEL% NEQ 0 (
+IF NOT %ERRORLEVEL%==0 (
 FINDSTR "error" %WORKSPACE_PATH%\ci\output.txt
 )
+
+SET buildFailed=%ERRORLEVEL%
 
 :: Delete output.txt
 del %WORKSPACE_PATH%\ci\output.txt
 
 :EXIT_BUILD
-IF %ERRORLEVEL%==0 (
+IF %buildFailed%==0 (
 	%ColorOk%
 	EXIT /b 0
 ) ELSE (
