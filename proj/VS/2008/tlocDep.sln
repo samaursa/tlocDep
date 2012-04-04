@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Versioning", "Versioning", "{A9B38A33-285E-4C4D-B837-0D240263799C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tlocDepVersionTool", "tlocDepVersionTool\tlocDepVersionTool.vcproj", "{75DEC615-27D5-4CBB-B694-064B94250F47}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E7408E5-4048-40E3-BC17-75B35694F972} = {0E7408E5-4048-40E3-BC17-75B35694F972}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
