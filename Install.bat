@@ -29,7 +29,7 @@ IF EXIST %Paths_file% (
   CHOICE /M "%Paths_file% already exists, over-write"
   IF ERRORLEVEL==2 (
     ECHO Existing file not over-written...
-    GOTO:DONE
+    GOTO:EOF
   )
 
   ECHO Over-writing existing %Paths_file% and creating backup - %Paths_file%.bak
@@ -47,8 +47,8 @@ ECHO ----------------------------------------------------------
 GOTO:EOF
 
 :EXTRACT_SDKS
-cd src/
-CALL ../bat/extractSDKs.bat
+cd bat/
+CALL extractSDKs.bat
 
 GOTO:EOF
 

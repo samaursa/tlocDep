@@ -5,13 +5,15 @@ ECHO Extracting SDKs
 ECHO -------------------------------------------------------------------------------
 
 :: Set the following depending on the engine's environment variable
-SET sdkDir=%TLOC_DEP_PATH%\src\
+SET sdkDir=..\src\
 
 :SET_ARGUMENTS
 SET forceUnzip=%1%
 
 :EXTRACT_SDKS
 SET nextSdk=%sdkDir%philsquared-Catch-f721a96
+CALL:INSTALL
+SET nextSdk=%sdkDir%WinSDK
 CALL:INSTALL
 
 GOTO:EOF
