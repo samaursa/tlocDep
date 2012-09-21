@@ -11,7 +11,7 @@ SET sdkDir=..\src\
 SET forceUnzip=%1%
 
 :EXTRACT_SDKS
-SET nextSdk=%sdkDir%philsquared-Catch-f721a96
+SET nextSdk=%sdkDir%philsquared-Catch-1840929
 CALL:INSTALL
 SET nextSdk=%sdkDir%WinSDK
 CALL:INSTALL
