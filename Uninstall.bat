@@ -1,19 +1,17 @@
 @echo off
 ECHO -------------------------------------------------------------------------------
-ECHO - UNINSTALLING TwoLoC Engine Dependencies -
+ECHO - UNINSTALLING 2LoC Engine Dependencies -
 ECHO -------------------------------------------------------------------------------
 
-ECHO.
-ECHO -------------------------------------------------------------------------------
-ECHO Deleting environment variables
-ECHO -------------------------------------------------------------------------------
-SET /P DelEnv="Do you want to delete all environment variables(y/n)?"
+CHOICE /M "Are you sure you want to uninstall"
+IF ERRORLEVEL==2 (
+  ECHO Aborting...
+  GOTO:DONE
+)
 
-IF "%DelEnv%"=="y" (
-  IF NOT "%TLOC_DEP_PATH%" == "" (
-  ECHO -!- Removing TLOC_DEP_PATH environment variable
-  REG delete HKCU\Environment /V TLOC_DEP_PATH /F
-  )
+:START_UNINSTALL
+IF EXIST Paths.bat (
+  DEL Paths.bat
 )
 
 :PURGE_REPOSITORY
@@ -21,20 +19,19 @@ ECHO.
 ECHO -------------------------------------------------------------------------------
 ECHO Repository Cleanup
 ECHO -------------------------------------------------------------------------------
-SET /P PurgeRepo="Do you want to purge the repository(y/n)?"
-IF "%PurgeRepo%"=="y" (
-  ECHO -!- Puring repository...
-  CALL bat/hgpurge.bat
-  ECHO DONE!
-  GOTO :RESTART_EXPLORER
+CHOICE /M "Do you want to purge (clean-up) the repository"
+IF ERRORLEVEL==2 (
+  ECHO Repository not cleaned up...
+  GOTO:DONE
 )
 
-:RESTART_EXPLORER
-ECHO -------------------------------------------------------------------------------
-ECHO Environment variables will not take effect unless Explore.exe is restarted.
-ECHO A Log-off/on cycle may still be required.
-ECHO -------------------------------------------------------------------------------
+ECHO -!- Puring repository...
+CALL bat/hgpurge.bat
+ECHO DONE!
 
 :DONE
-ECHO DONE!
+ECHO.
+ECHO -------------------------------------------------------------------------------
+ECHO UNINSTALL COMPLETE
+ECHO -------------------------------------------------------------------------------
 PAUSE

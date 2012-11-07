@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="CATCH"
-	ProjectGUID="{028BE2F2-F5BA-413C-9E48-7B13F8C4A134}"
-	RootNamespace="CATCH"
+	Name="tlocDepVersionTool"
+	ProjectGUID="{75DEC615-27D5-4CBB-B694-064B94250F47}"
+	RootNamespace="tlocDepVersionTool"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -27,7 +27,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -37,28 +37,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug|x64"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 		<Configuration
@@ -71,7 +50,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -81,29 +60,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release|x64"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 		<Configuration
@@ -115,7 +72,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -125,28 +82,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug_StdAlloc|x64"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 		<Configuration
@@ -154,10 +90,12 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -167,27 +105,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_DebugInfo|x64"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="10"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 		<Configuration
@@ -200,7 +118,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -210,29 +128,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_DebugInfo_StdAlloc|x64"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="3"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 		<Configuration
@@ -245,7 +141,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -255,6 +151,125 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine=""
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine=""
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug_StdAlloc|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine=""
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_DebugInfo|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine=""
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_DebugInfo_StdAlloc|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine=""
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 		<Configuration
@@ -267,7 +282,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine=""
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -278,6 +293,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="$(TLOC_DEP_PATH)\bin\VS2008\$(ConfigurationName)\$(PlatformName)\tlocDepVersion\tlocDepVersion.exe"
 			/>
 		</Configuration>
 	</Configurations>
