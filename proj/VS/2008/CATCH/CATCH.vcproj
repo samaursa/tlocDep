@@ -27,7 +27,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -48,7 +48,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -71,7 +71,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -93,7 +93,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -115,7 +115,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -136,7 +136,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -157,7 +157,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -177,7 +177,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -191,7 +191,7 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release_DebugInfo_StdAlloc|Win32"
+			Name="Release_StdAlloc_DebugInfo|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="10"
@@ -200,7 +200,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -213,7 +213,7 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release_DebugInfo_StdAlloc|x64"
+			Name="Release_StdAlloc_DebugInfo|x64"
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="10"
@@ -222,7 +222,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -245,7 +245,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -267,7 +267,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\philsquared-Catch-1840929\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"

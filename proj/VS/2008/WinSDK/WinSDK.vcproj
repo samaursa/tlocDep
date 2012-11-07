@@ -36,116 +36,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_StdAlloc|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_DebugInfo_StdAlloc|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release_DebugInfo|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug_StdAlloc|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="10"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -167,7 +58,29 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -190,7 +103,29 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_StdAlloc|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -213,11 +148,33 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release_DebugInfo_StdAlloc|x64"
+			Name="Release_StdAlloc_DebugInfo|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_StdAlloc_DebugInfo|x64"
 			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="10"
@@ -236,7 +193,29 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release_DebugInfo|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -259,7 +238,28 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug_StdAlloc|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="10"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -281,7 +281,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\include\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;&#x0D;&#x0A;mkdir &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\WinSDK\$(PlatformName)\lib\*.lib*&quot; &quot;$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
