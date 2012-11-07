@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tlocDepVersionTool", "tlocD
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinSDK", "WinSDK\WinSDK.vcproj", "{658F32A0-EAAE-4CD5-810A-383A3345194D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Box2D", "Box2D\Box2D.vcproj", "{384603A5-0B6C-42B4-BB60-B56FB3189C45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_StdAlloc|Win32 = Debug_StdAlloc|Win32
@@ -106,6 +108,24 @@ Global
 		{658F32A0-EAAE-4CD5-810A-383A3345194D}.Release|Win32.ActiveCfg = Release|Win32
 		{658F32A0-EAAE-4CD5-810A-383A3345194D}.Release|Win32.Build.0 = Release|Win32
 		{658F32A0-EAAE-4CD5-810A-383A3345194D}.Release|x64.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Debug_StdAlloc|Win32.ActiveCfg = Debug|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Debug_StdAlloc|Win32.Build.0 = Debug|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Debug_StdAlloc|x64.ActiveCfg = Debug|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Debug|Win32.Build.0 = Debug|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Debug|x64.ActiveCfg = Debug|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_DebugInfo_StdAlloc|Win32.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_DebugInfo_StdAlloc|Win32.Build.0 = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_DebugInfo_StdAlloc|x64.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_DebugInfo|Win32.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_DebugInfo|Win32.Build.0 = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_DebugInfo|x64.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_StdAlloc|Win32.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_StdAlloc|Win32.Build.0 = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release_StdAlloc|x64.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release|Win32.ActiveCfg = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release|Win32.Build.0 = Release|Win32
+		{384603A5-0B6C-42B4-BB60-B56FB3189C45}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
