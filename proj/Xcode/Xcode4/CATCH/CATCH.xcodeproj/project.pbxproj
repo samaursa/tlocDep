@@ -1,0 +1,120 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		97AF90C516A9106000DB6C90 /* CATCH */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 97AF90C616A9106000DB6C90 /* Build configuration list for PBXAggregateTarget "CATCH" */;
+			buildPhases = (
+				97AF90C916A9108F00DB6C90 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CATCH;
+			productName = CATCH;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXGroup section */
+		97AF90BC16A90E4200DB6C90 = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		97AF90BE16A90E4200DB6C90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 97AF90C116A90E4200DB6C90 /* Build configuration list for PBXProject "CATCH" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 97AF90BC16A90E4200DB6C90;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				97AF90C516A9106000DB6C90 /* CATCH */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		97AF90C916A9108F00DB6C90 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -a --include '*/'  --include '*.h*' --include '*.c*' --exclude '*' $TLOC_DEP_PATH/src/philsquared-Catch-1840929/ $TLOC_DEP_PATH/include/CATCH";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		97AF90C316A90E4200DB6C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		97AF90C416A90E4200DB6C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		97AF90C716A9106000DB6C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		97AF90C816A9106000DB6C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97AF90C116A90E4200DB6C90 /* Build configuration list for PBXProject "CATCH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97AF90C316A90E4200DB6C90 /* Debug */,
+				97AF90C416A90E4200DB6C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97AF90C616A9106000DB6C90 /* Build configuration list for PBXAggregateTarget "CATCH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97AF90C716A9106000DB6C90 /* Debug */,
+				97AF90C816A9106000DB6C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97AF90BE16A90E4200DB6C90 /* Project object */;
+}

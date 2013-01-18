@@ -161,7 +161,6 @@
 		97DDD443167D599A00454B65 /* b2WheelJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = b2WheelJoint.cpp; path = ../../../../../src/Box2D_v2.2.1/Box2D/Dynamics/Joints/b2WheelJoint.cpp; sourceTree = "<group>"; };
 		97DDD444167D599A00454B65 /* b2World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = b2World.cpp; path = ../../../../../src/Box2D_v2.2.1/Box2D/Dynamics/b2World.cpp; sourceTree = "<group>"; };
 		97DDD445167D599A00454B65 /* b2WorldCallbacks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = b2WorldCallbacks.cpp; path = ../../../../../src/Box2D_v2.2.1/Box2D/Dynamics/b2WorldCallbacks.cpp; sourceTree = "<group>"; };
-		97DDD474167D5AEB00454B65 /* Box2D */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Box2D; path = ../../../../src/Box2D_v2.2.1/Box2D; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				973E25F0167D0D4000BB141A /* Box2D */,
-				97DDD474167D5AEB00454B65 /* Box2D */,
 				973E25ED167D0D4000BB141A /* Frameworks */,
 				973E25EC167D0D4000BB141A /* Products */,
 			);

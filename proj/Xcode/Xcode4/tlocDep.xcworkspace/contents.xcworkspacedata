@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Box2D/Box2D.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:CATCH/CATCH.xcodeproj">
+   </FileRef>
 </Workspace>
