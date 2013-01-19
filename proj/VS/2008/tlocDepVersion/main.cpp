@@ -105,6 +105,7 @@ int main(int argc, char* argv[])
     }
 
     file.seekg(0, ios::beg);
+    file.clear();
   }
 
   // The current time in milliseconds
