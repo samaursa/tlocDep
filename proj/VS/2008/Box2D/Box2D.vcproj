@@ -81,7 +81,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -148,7 +148,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -214,7 +214,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -281,7 +281,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -349,7 +349,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -418,7 +418,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -487,7 +487,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -557,7 +557,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -625,7 +625,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -694,7 +694,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -763,7 +763,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 		<Configuration
@@ -833,7 +833,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
+				CommandLine="mkdir &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.h*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;xcopy /D /Y /S &quot;$(TLOC_DEP_PATH)\src\Box2D_v2.2.1\Box2D\*.c*&quot; &quot;$(TLOC_DEP_PATH)\include\$(ProjectName)\&quot;&#x0D;&#x0A;"
 			/>
 		</Configuration>
 	</Configurations>
