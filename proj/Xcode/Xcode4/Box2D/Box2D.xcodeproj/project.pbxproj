@@ -373,7 +373,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rsync -a --include '*/'  --include '*.h*' --include '*.c*' --exclude '*' $TLOC_DEP_PATH/src/Box2D_v2.2.1/ $TLOC_DEP_PATH/include/Box2D";
+			shellScript = "rsync -a --include '*/'  --include '*.h*' --include '*.c*' --exclude '*' $TLOC_DEP_PATH/src/Box2D_v2.2.1/ $TLOC_DEP_PATH/include/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
