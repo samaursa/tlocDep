@@ -50,7 +50,7 @@
 				RuntimeLibrary="1"
 				RuntimeTypeInfo="false"
 				ProgramDataBaseFileName="$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).pdb"
-				WarningLevel="3"
+				WarningLevel="4"
 				WarnAsError="false"
 				DebugInformationFormat="4"
 			/>
@@ -183,7 +183,7 @@
 				RuntimeLibrary="1"
 				RuntimeTypeInfo="false"
 				ProgramDataBaseFileName="$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).pdb"
-				WarningLevel="3"
+				WarningLevel="4"
 				WarnAsError="false"
 				DebugInformationFormat="3"
 			/>
@@ -318,7 +318,7 @@
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				ProgramDataBaseFileName="$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).pdb"
-				WarningLevel="3"
+				WarningLevel="4"
 				WarnAsError="false"
 				DebugInformationFormat="3"
 			/>
@@ -456,7 +456,7 @@
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				ProgramDataBaseFileName="$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).pdb"
-				WarningLevel="3"
+				WarningLevel="4"
 				WarnAsError="false"
 				DebugInformationFormat="3"
 			/>
@@ -594,7 +594,7 @@
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				ProgramDataBaseFileName="$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).pdb"
-				WarningLevel="3"
+				WarningLevel="4"
 				WarnAsError="false"
 				DebugInformationFormat="3"
 			/>
@@ -732,7 +732,7 @@
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="false"
 				ProgramDataBaseFileName="$(TLOC_DEP_PATH)\lib\VS2008\$(ConfigurationName)\$(PlatformName)\$(ProjectName)\$(ProjectName)_$(ConfigurationName).pdb"
-				WarningLevel="3"
+				WarningLevel="4"
 				WarnAsError="false"
 				DebugInformationFormat="3"
 			/>
