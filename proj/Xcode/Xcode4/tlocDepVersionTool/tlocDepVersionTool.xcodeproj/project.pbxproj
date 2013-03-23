@@ -63,7 +63,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = $TLOC_DEP_PATH/bin/Xcode4/$CONFIGURATION/$EFFECTIVE_PLATFORM_NAME/tlocDepVersion/tlocDepVersion;
+			shellScript = $TLOC_DEP_PATH/bin/Xcode4/$CONFIGURATION/$PLATFORM_NAME/tlocDepVersion/tlocDepVersion;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -113,6 +113,7 @@
 				97AF913116AA51DD00DB6C90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
