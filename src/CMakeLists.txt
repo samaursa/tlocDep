@@ -103,7 +103,8 @@ set(SDKS_TO_EXTRACT ${WIN_SDK_PATH})
 message("-- Extracting all SDKs --")
 foreach(SDK ${SDKS_TO_EXTRACT})
   message("Extracting ${SDK}")
-  if(IS_DIRECTORY ${SDK})
+  message(${CMAKE_CURRENT_SOURCE_DIR}/${SDK})
+  if(NOT IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SDK})
     execute_process(
       COMMAND ${CMAKE_COMMAND} -E tar xzf ${SDK}.tar.gz
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
