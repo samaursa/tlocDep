@@ -103,7 +103,6 @@ set(SDKS_TO_EXTRACT ${WIN_SDK_PATH})
 message("-- Extracting all SDKs --")
 foreach(SDK ${SDKS_TO_EXTRACT})
   message("Extracting ${SDK}")
-  message(${CMAKE_CURRENT_SOURCE_DIR}/${SDK})
   if(NOT IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SDK})
     execute_process(
       COMMAND ${CMAKE_COMMAND} -E tar xzf ${SDK}.tar.gz
@@ -117,14 +116,20 @@ endforeach()
 message("-- Extracting all SDKs - done --")
 
 #Copy files
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Box2D_v2.2.1/Box2D DESTINATION ${CMAKE_SOURCE_DIR}/include/Box2D FILES_MATCHING PATTERN "*.h" PATTERN "*.cpp")
-
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Box2D_v2.2.1/Box2D DESTINATION ${CMAKE_SOURCE_DIR}/include/Box2D FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/WinSDK/Win32/include/dinput.h DESTINATION ${CMAKE_SOURCE_DIR}/include/WinSDK/)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/philsquared-Catch-1840929/include/. DESTINATION ${CMAKE_SOURCE_DIR}/include/CATCH/ FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
+
 
 # Remove MINSIZEREL
 set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE TYPE INTERNAL FORCE )
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+
+SET(CMAKE_CXX_FLAGS_DEFAULT                 ${CMAKE_CXX_FLAGS})
+set(CMAKE_CXX_FLAGS_DEBUG_DEFAULT           ${CMAKE_CXX_FLAGS_DEBUG})
+set(CMAKE_CXX_FLAGS_RELEASE_DEFAULT         ${CMAKE_CXX_FLAGS_RELEASE})
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT  ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
 
 IF(MSVC)
   set(CMAKE_CXX_FLAGS_DEBUG           "/Od /Gm /RTC1 /MTd /GR- /W4 /WX /c /Zi /TP")
@@ -136,8 +141,9 @@ IF(MSVC)
 ENDIF()
 
 # lib/exe path for all configurations
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}/${ARCH_DIR}/${Box2D})
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE}/${ARCH_DIR}/${Box2D})
+message("${TARGET_SONAME}")
+set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${ARCH_DIR})
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${ARCH_DIR})
 
 # Add the Box2D library
 include_directories(
@@ -145,6 +151,35 @@ include_directories(
   )
 
 add_library(
-  tloc_Box2D STATIC
+  Box2D STATIC
   ${BOX_2D_SOURCE}
   )
+
+#-----------------------------------------------------------
+# Version project
+# - This project requires default compiler settings 
+
+set(CMAKE_CXX_FLAGS                 ${CMAKE_CXX_FLAGS_DEFAULT})
+set(CMAKE_CXX_FLAGS_DEBUG           ${CMAKE_CXX_FLAGS_DEBUG_DEFAULT})
+set(CMAKE_CXX_FLAGS_RELEASE         ${CMAKE_CXX_FLAGS_RELEASE_DEFAULT})
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  ${CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT})
+
+# Generate tlocFilePaths.h file
+FILE(WRITE ${CMAKE_SOURCE_DIR}/include/tlocDepVersion/tlocVersionFilePath.h "
+#define VERSION_FILE_NAME \"${CMAKE_SOURCE_DIR}/src/tlocDepVersion.h\"
+")
+
+include_directories(
+  ${CMAKE_SOURCE_DIR}/include/
+  )
+
+add_executable(
+  tlocDepVersion 
+  ${CMAKE_CURRENT_SOURCE_DIR}/tlocDepVersion/main.cpp
+  )
+
+# Run the generated executable after build
+add_custom_target(tlocDepVersionTool ALL
+  COMMAND ${EXECUTABLE_OUTPUT_PATH}/${CMAKE_CFG_INTDIR}/tlocDepVersion
+   DEPENDS tlocDepVersion
+ )

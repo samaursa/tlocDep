@@ -4,10 +4,11 @@
 #include <time.h>
 #include <vector>
 
+#include <tlocDepVersion/tlocVersionFilePath.h>
+
 using namespace std;
 
 #define PROJECT_NAME "TLOC_DEP"
-#define VERSION_FILE_NAME "../../../../src/tlocDepVersion.h"
 
 #define RETURN_SUCCESS return 0
 #define RETURN_ERROR return -1
