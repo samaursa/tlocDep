@@ -156,3 +156,7 @@ add_library(
   Box2D STATIC
   ${BOX_2D_SOURCE}
   )
+
+if(NOT APPLE)
+  add_subdirectory(tlocDepVersion)
+endif()
