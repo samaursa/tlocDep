@@ -1,138 +1,33 @@
-set(BOX_2D_PATH   Box2D_v2.2.1)
+set(BOX_2D_PATH   Box2D)
+set(CATCH_PATH    CATCH)
 set(WIN_SDK_PATH  WinSDK)
 
-set(
-  BOX_2D_SOURCE
-  ${BOX_2D_PATH}/License.txt 
-  ${BOX_2D_PATH}/Box2D/Box2D.h 
-  ${BOX_2D_PATH}/Box2D/Collision/b2BroadPhase.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2BroadPhase.h 
-  ${BOX_2D_PATH}/Box2D/Collision/b2CollideCircle.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2CollideEdge.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2CollidePolygon.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2Collision.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2Collision.h 
-  ${BOX_2D_PATH}/Box2D/Collision/b2Distance.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2Distance.h 
-  ${BOX_2D_PATH}/Box2D/Collision/b2DynamicTree.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2DynamicTree.h 
-  ${BOX_2D_PATH}/Box2D/Collision/b2TimeOfImpact.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/b2TimeOfImpact.h 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2ChainShape.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2ChainShape.h 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2CircleShape.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2CircleShape.h 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2EdgeShape.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2EdgeShape.h 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2PolygonShape.cpp 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2PolygonShape.h 
-  ${BOX_2D_PATH}/Box2D/Collision/Shapes/b2Shape.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2BlockAllocator.cpp 
-  ${BOX_2D_PATH}/Box2D/Common/b2BlockAllocator.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2Draw.cpp 
-  ${BOX_2D_PATH}/Box2D/Common/b2Draw.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2GrowableStack.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2Math.cpp 
-  ${BOX_2D_PATH}/Box2D/Common/b2Math.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2Settings.cpp 
-  ${BOX_2D_PATH}/Box2D/Common/b2Settings.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2StackAllocator.cpp 
-  ${BOX_2D_PATH}/Box2D/Common/b2StackAllocator.h 
-  ${BOX_2D_PATH}/Box2D/Common/b2Timer.cpp 
-  ${BOX_2D_PATH}/Box2D/Common/b2Timer.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2Body.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2Body.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2ContactManager.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2ContactManager.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2Fixture.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2Fixture.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2Island.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2Island.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2TimeStep.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2World.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2World.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2WorldCallbacks.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/b2WorldCallbacks.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2CircleContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2CircleContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2Contact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2Contact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2ContactSolver.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2ContactSolver.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2PolygonContact.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Contacts/b2PolygonContact.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2DistanceJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2DistanceJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2FrictionJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2FrictionJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2GearJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2GearJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2Joint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2Joint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2MouseJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2MouseJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2PrismaticJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2PulleyJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2PulleyJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2RevoluteJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2RopeJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2RopeJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2WeldJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2WeldJoint.h 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2WheelJoint.cpp 
-  ${BOX_2D_PATH}/Box2D/Dynamics/Joints/b2WheelJoint.h 
-  ${BOX_2D_PATH}/Box2D/Rope/b2Rope.cpp 
-  ${BOX_2D_PATH}/Box2D/Rope/b2Rope.h
-  )
-
 # Add other SDKs that need extraction here
-set(SDKS_TO_EXTRACT ${WIN_SDK_PATH})
+set(SDKS_TO_EXTRACT 
+    ${WIN_SDK_PATH})
 
+message("")
 message("-- Extracting all SDKs --")
 foreach(SDK ${SDKS_TO_EXTRACT})
-  message("Extracting ${SDK}")
-  if(NOT IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SDK})
-    execute_process(
-      COMMAND ${CMAKE_COMMAND} -E tar xzf ${SDK}.tar.gz
-      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-      )
-    message("Extracting ${SDK} - done")
-  else()
-    message("Extracting ${SDK} - already exists")
-  endif()
+  message("Extracting \"${SDK}\"")
+  execute_process(
+    COMMAND ${CMAKE_COMMAND} -E tar xzf ${SDK}.tar.gz
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SDK}
+    )
+  message("Extracting \"${SDK}\" - done")
 endforeach()
-message("-- Extracting all SDKs - done --")
+message("-- Extracting all SDKs -- done") 
 
-#Copy files
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Box2D_v2.2.1/Box2D DESTINATION ${CMAKE_SOURCE_DIR}/include/Box2D FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/WinSDK/Win32/include/dinput.h DESTINATION ${CMAKE_SOURCE_DIR}/include/WinSDK/)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/philsquared-Catch-1840929/include/. DESTINATION ${CMAKE_SOURCE_DIR}/include/CATCH/ FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
-
-
-# Remove MINSIZEREL
+# ---------- Remove MINSIZEREL ----------
 set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE TYPE INTERNAL FORCE )
 
-# Should be windows only - double check and put it in if(WIN32)
-add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-
-# Backup the default flags
+# ---------- Backup the default flags ----------
 SET(CMAKE_CXX_FLAGS_DEFAULT                 ${CMAKE_CXX_FLAGS})
 set(CMAKE_CXX_FLAGS_DEBUG_DEFAULT           ${CMAKE_CXX_FLAGS_DEBUG})
 set(CMAKE_CXX_FLAGS_RELEASE_DEFAULT         ${CMAKE_CXX_FLAGS_RELEASE})
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT  ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
 
+# ---------- COMPILER FLAGS ----------
 if(MSVC)
   set(CMAKE_CXX_FLAGS_DEBUG           "/Od /Gm /RTC1 /MTd /GR- /W4 /WX /c /Zi /TP")
   set(CMAKE_CXX_FLAGS_RELEASE         "/O2 /Ob2 /Oi /Ot /GL /MT /Gy /GR- /W4 /WX /c /Zi /TP")
@@ -140,23 +35,33 @@ if(MSVC)
 
   #turn off exceptions for all configurations
   string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+elseif(APPLE)
+  set(CMAKE_CXX_FLAGS_DEBUG "-fno-exceptions -fno-rtti -Wno-unused-function")
+  set(CMAKE_CXX_FLAGS_RELEASE "-fno-exceptions -fno-rtti -Wno-unused-function")
+  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-fno-exceptions -fno-rtti -Wno-unused-function")
 endif()
 
-# lib/exe path for all configurations
-message("${TARGET_SONAME}")
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${ARCH_DIR})
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin/${ARCH_DIR})
+# Should be windows only - double check and put it in if(WIN32)
+if(WIN32)
+  add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+endif()
 
-# Add the Box2D library
-include_directories(
-  ${CMAKE_SOURCE_DIR}/include/Box2D/
-  )
+# ---------- All SDKs that have CMakeLists.txt ----------
+set(SDKS_TO_CMAKE 
+    ${BOX_2D_PATH} 
+    ${CATCH_PATH} 
+    ${WIN_SDK_PATH}
+    )
 
-add_library(
-  Box2D STATIC
-  ${BOX_2D_SOURCE}
-  )
+message("")
+message("-- Adding all SDKs to CMake --")
+foreach(SDK ${SDKS_TO_CMAKE})
+  message("Adding ${SDK} to CMake")
+  add_subdirectory(${SDK})
+endforeach()
+message("-- Adding all SDKs to CMake -- done")
 
+# ---------- Add tlocVersion (Note: Does NOT work on iOS currently [will work on OSX when we have OSX builds]) ----------
 if(NOT APPLE)
   add_subdirectory(tlocDepVersion)
 endif()
