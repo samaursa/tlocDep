@@ -23,6 +23,6 @@ add_executable(
 
 # Run the generated executable after build
 add_custom_target(tlocDepVersionTool ALL
-  COMMAND ${EXECUTABLE_OUTPUT_PATH}/${CMAKE_CFG_INTDIR}/tlocDepVersion
+  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tlocDepVersion
    DEPENDS tlocDepVersion
  )

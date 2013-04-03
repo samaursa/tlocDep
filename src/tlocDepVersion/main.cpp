@@ -102,8 +102,12 @@ int main(int argc, char* argv[])
           pos = pos2;
           pos2 = currLine.find_first_of('_', pos + 1);
         }
+
+        goto DONE;
       }
     }
+
+DONE:
 
     file.seekg(0, ios::beg);
     file.clear();
