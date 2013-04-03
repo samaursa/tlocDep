@@ -11,9 +11,10 @@ message("-- Extracting all SDKs --")
 foreach(SDK ${SDKS_TO_EXTRACT})
   message("Extracting \"${SDK}\"")
   execute_process(
-    COMMAND ${CMAKE_COMMAND} -E tar xzf ${SDK}.tar.gz
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SDK}
+    COMMAND ${CMAKE_COMMAND} -E tar xzf ${CMAKE_CURRENT_SOURCE_DIR}/${SDK}/${SDK}.tar.gz
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${SDK}/
     )
+   message("rv='${rv}'")
   message("Extracting \"${SDK}\" - done")
 endforeach()
 message("-- Extracting all SDKs -- done") 

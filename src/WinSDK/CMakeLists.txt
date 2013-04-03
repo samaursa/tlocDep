@@ -1,5 +1,1 @@
-set(BOX_2D_PATH   Box2D)
-set(CATCH_PATH    CATCH)
-set(WIN_SDK_PATH  WinSDK)
-
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${WIN_SDK_PATH}/Win32/include/dinput.h DESTINATION ${CMAKE_SOURCE_DIR}/include/WinSDK/)
