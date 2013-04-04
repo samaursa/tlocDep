@@ -1,0 +1,1 @@
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${WIN_SDK_PATH}/Win32/include/dinput.h DESTINATION ${CMAKE_SOURCE_DIR}/include/WinSDK/)

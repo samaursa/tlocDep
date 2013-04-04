@@ -51,7 +51,7 @@ void b2WorldManifold::Initialize(const b2Manifold* manifold,
 		{
 			normal = b2Mul(xfA.q, manifold->localNormal);
 			b2Vec2 planePoint = b2Mul(xfA, manifold->localPoint);
-			
+
 			for (int32 i = 0; i < manifold->pointCount; ++i)
 			{
 				b2Vec2 clipPoint = b2Mul(xfB, manifold->points[i].localPoint);
@@ -217,7 +217,7 @@ int32 b2ClipSegmentToLine(b2ClipVertex vOut[2], const b2ClipVertex vIn[2],
 		vOut[numOut].v = vIn[0].v + interp * (vIn[1].v - vIn[0].v);
 
 		// VertexA is hitting edgeB.
-		vOut[numOut].id.cf.indexA = vertexIndexA;
+		vOut[numOut].id.cf.indexA = (uint8)vertexIndexA;
 		vOut[numOut].id.cf.indexB = vIn[0].id.cf.indexB;
 		vOut[numOut].id.cf.typeA = b2ContactFeature::e_vertex;
 		vOut[numOut].id.cf.typeB = b2ContactFeature::e_face;
