@@ -17,8 +17,3 @@ else()
 endif()
 
 add_subdirectory(src)
-
-install(EXPORT tlocDep-targets
-  DESTINATION ${PROJECT_BINARY_DIR}/lib/
-  CONFIGURATIONS Debug;Release;RelWithDebInfo
-  )
