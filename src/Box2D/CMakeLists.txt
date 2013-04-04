@@ -108,3 +108,11 @@ add_library(
   Box2D STATIC
   ${BOX_2D_SOURCE}
   )
+
+install(TARGETS Box2D
+  EXPORT tlocDep-targets
+  LIBRARY DESTINATION ${PROJECT_BINARY_DIR}/lib/
+  ARCHIVE DESTINATION ${PROJECT_BINARY_DIR}/lib/
+  CONFIGURATIONS Debug;Release;RelWithDebInfo
+  OPTIONAL
+  )
