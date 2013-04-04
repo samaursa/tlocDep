@@ -62,6 +62,6 @@ endforeach()
 message(STATUS "-- Adding all SDKs to CMake -- done")
 
 # ---------- Add tlocVersion (Note: Does NOT work on iOS currently [will work on OSX when we have OSX builds]) ----------
-if(NOT APPLE)
+if(NOT TLOC_PLATFORM_IOS)
   add_subdirectory(tlocDepVersion)
 endif()

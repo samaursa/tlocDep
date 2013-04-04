@@ -101,7 +101,7 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Box2D_v2.2.1/Box2D DESTINATION ${CMAKE_SOU
 
 # Add the Box2D library
 include_directories(
-  ${CMAKE_SOURCE_DIR}/include/Box2D/
+  ${BOX_2D_PATH}
   )
 
 add_library(
