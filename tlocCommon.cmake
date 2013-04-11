@@ -62,6 +62,12 @@ else()
 endif()
 
 #------------------------------------------------------------------------------
+# Common variables that are (should be) global
+
+set(USER_PROJECT_TYPE_LIB "lib")
+set(USER_PROJECT_TYPE_EXE "exe")
+
+#------------------------------------------------------------------------------
 # MISC
 
 # Solution folders for MSVC
