@@ -1,6 +1,7 @@
-set(BOX_2D_PATH   Box2D)
-set(CATCH_PATH    CATCH)
-set(WIN_SDK_PATH  WinSDK)
+set(BOX_2D_PATH     Box2D)
+set(CATCH_PATH      CATCH)
+set(RAPID_XML_PATH  RapidXML)
+set(WIN_SDK_PATH    WinSDK)
 
 # Add other SDKs that need extraction here
 set(SDKS_TO_EXTRACT 
@@ -53,6 +54,7 @@ set(SDKS_TO_CMAKE
     ${BOX_2D_PATH} 
     ${CATCH_PATH} 
     ${WIN_SDK_PATH}
+    ${RAPID_XML_PATH}
     )
 
 message("")
