@@ -19,35 +19,9 @@ foreach(SDK ${SDKS_TO_EXTRACT})
 endforeach()
 message(STATUS "-- Extracting all SDKs -- done") 
 
-# ---------- Remove MINSIZEREL ----------
-set(CMAKE_CONFIGURATION_TYPES Debug Release RelWithDebInfo CACHE TYPE INTERNAL FORCE )
+# ---------- Add strict compiler settings for all projects ----------
 
-# ---------- Backup the default flags ----------
-SET(CMAKE_CXX_FLAGS_DEFAULT                 ${CMAKE_CXX_FLAGS})
-set(CMAKE_CXX_FLAGS_DEBUG_DEFAULT           ${CMAKE_CXX_FLAGS_DEBUG})
-set(CMAKE_CXX_FLAGS_RELEASE_DEFAULT         ${CMAKE_CXX_FLAGS_RELEASE})
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT  ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
-
-# ---------- COMPILER FLAGS ----------
-if(TLOC_COMPILER_MSVC)
-  set(CMAKE_CXX_FLAGS_DEBUG           "/Od /Gm /RTC1 /MTd /GR- /W4 /WX /c /Zi /TP")
-  set(CMAKE_CXX_FLAGS_RELEASE         "/O2 /Ob2 /Oi /Ot /GL /MT /Gy /GR- /W4 /WX /c /Zi /TP")
-  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "/O2 /Ob2 /Oi /Ot /Gm /MT /Gy /GR- /W4 /WX /c /Zi /TP")
-
-  #turn off exceptions for all configurations
-  string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-elseif(TLOC_COMPILER_XCODE)
-  set(CMAKE_CXX_FLAGS_DEBUG "-fno-exceptions -fno-rtti -Wno-unused-function")
-  set(CMAKE_CXX_FLAGS_RELEASE "-fno-exceptions -fno-rtti -Wno-unused-function")
-  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-fno-exceptions -fno-rtti -Wno-unused-function")
-else()
-  message("Compiler options not set as your compiler is currently not supported (or was not detected properly)")
-endif()
-
-# Should be windows only - double check and put it in if(WIN32)
-if(TLOC_PLATFORM_WIN32)
-  add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-endif()
+tloc_add_definitions_strict()
 
 # ---------- All SDKs that have CMakeLists.txt ----------
 set(SDKS_TO_CMAKE 
