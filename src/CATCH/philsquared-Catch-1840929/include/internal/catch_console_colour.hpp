@@ -36,7 +36,9 @@ namespace Catch {
         ~TextColour();
         
     private:
-        //ConsoleColourImpl* m_impl;
+#ifdef CATCH_PLATFORM_WINDOWS
+        ConsoleColourImpl* m_impl;
+#endif
     };
     
 } // end namespace Catch
