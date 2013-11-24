@@ -69,6 +69,7 @@ set(TLOC_CXX_FLAGS_RELWITHDEBINFO_DEFAULT   ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
 
 # default definitions
 function(tloc_revert_definitions)
+  set(CMAKE_CXX_FLAGS                ${CMAKE_CXX_FLAGS_DEFAULT} PARENT_SCOPE)
   set(CMAKE_CXX_FLAGS_DEBUG          ${CMAKE_CXX_FLAGS_DEBUG_DEFAULT} PARENT_SCOPE)
   set(CMAKE_CXX_FLAGS_RELEASE        ${CMAKE_CXX_FLAGS_RELEASE_DEFAULT} PARENT_SCOPE)
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT} PARENT_SCOPE)
@@ -112,6 +113,7 @@ function(tloc_add_definitions_strict)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} PARENT_SCOPE)
 
   elseif (TLOC_COMPILER_XCODE) # xcode compiler and linker flags
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
     # Note that -gdwarf-2 generates debug symbols (dsym files in dwarf standard)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -Wno-unused-function -g -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTLOC_RELEASE -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -Wno-unused-function -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
@@ -148,7 +150,7 @@ function(tloc_add_definitions)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} PARENT_SCOPE)
 
   elseif(TLOC_COMPILER_XCODE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ -fno-rtti -Wno-unused-function -g" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTLOC_RELEASE -std=c++11 -stdlib=libc++ -fno-rtti -Wno-unused-function" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -std=c++11 -stdlib=libc++ -DTLOC_RELEASE_DEBUGINFO -fno-rtti -Wno-unused-function -g" PARENT_SCOPE)
