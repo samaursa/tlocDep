@@ -103,7 +103,7 @@
         AF_StyleClass  style_class = AF_STYLE_CLASSES_GET[ss];
 
 
-        if ( style_class->script == *fallback_script      &&
+        if ( style_class->script == (AF_Script)*fallback_script      &&
              style_class->coverage == AF_COVERAGE_DEFAULT )
         {
           module->fallback_style = ss;

@@ -63,12 +63,15 @@ set(BASE_SRCS
 #Copy files
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${FREETYPE_PATH}/include/ DESTINATION ${CMAKE_SOURCE_DIR}/include/FreeType FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
 
-include_directories("${FREETYPE_PATH}/src/truetype")
-include_directories("${FREETYPE_PATH}/src/sfnt")
-include_directories("${FREETYPE_PATH}/src/autofit")
-include_directories("${FREETYPE_PATH}/src/smooth")
-include_directories("${FREETYPE_PATH}/src/raster")
-include_directories("${FREETYPE_PATH}/src/psaux")
-include_directories("${FREETYPE_PATH}/src/psnames")
+include_directories(${FREETYPE_PATH}/src/truetype)
+include_directories(${FREETYPE_PATH}/src/sfnt)
+include_directories(${FREETYPE_PATH}/src/autofit)
+include_directories(${FREETYPE_PATH}/src/smooth)
+include_directories(${FREETYPE_PATH}/src/raster)
+include_directories(${FREETYPE_PATH}/src/psaux)
+include_directories(${FREETYPE_PATH}/src/psnames)
 
-add_library(freetype ${BASE_SRCS})
+add_library(
+  FreeType STATIC 
+  ${BASE_SRCS}
+)
