@@ -75,3 +75,5 @@ add_library(
   FreeType STATIC 
   ${BASE_SRCS}
 )
+
+set_platform_specific_properties(FreeType)

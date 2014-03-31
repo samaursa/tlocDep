@@ -24,6 +24,27 @@ else()
   set(ARCH_DIR "x86")
 endif()
 
+# This little macro lets you set any XCode specific property
+macro (set_xcode_property TARGET XCODE_PROPERTY XCODE_VALUE)
+	set_property (TARGET ${TARGET} PROPERTY XCODE_ATTRIBUTE_${XCODE_PROPERTY} ${XCODE_VALUE})
+endmacro (set_xcode_property)
+
+#------------------------------------------------------------------------------
+# Set iOS Deployement Target
+
+function(set_deployment_target target_name)
+if(TLOC_COMPILER_XCODE)
+  set_xcode_property(${target_name} IPHONEOS_DEPLOYMENT_TARGET "6.0")
+endif()
+endfunction()
+
+#------------------------------------------------------------------------------
+# Set Platform Specific Properties
+
+function(set_platform_specific_properties target_name)
+  set_deployment_target(${target_name})
+endfunction()
+
 #------------------------------------------------------------------------------
 # Compiler
 
@@ -180,6 +201,8 @@ endif()
 
 set(USER_PROJECT_TYPE_LIB "lib")
 set(USER_PROJECT_TYPE_EXE "exe")
+set(IOS_DEPLOYMENT_TARGET "6.0")
+set(IOS_DEPLOYMENT_TARGET "6.0" CACHE PATH "This is the lowest OS that you are supporting")
 
 #------------------------------------------------------------------------------
 # MISC

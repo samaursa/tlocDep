@@ -108,3 +108,5 @@ add_library(
   Box2D STATIC
   ${BOX_2D_SOURCE}
   )
+
+set_platform_specific_properties(Box2D)
