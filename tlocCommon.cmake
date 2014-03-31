@@ -24,6 +24,27 @@ else()
   set(ARCH_DIR "x86")
 endif()
 
+# This little macro lets you set any XCode specific property
+macro (set_xcode_property TARGET XCODE_PROPERTY XCODE_VALUE)
+	set_property (TARGET ${TARGET} PROPERTY XCODE_ATTRIBUTE_${XCODE_PROPERTY} ${XCODE_VALUE})
+endmacro (set_xcode_property)
+
+#------------------------------------------------------------------------------
+# Set iOS Deployement Target
+
+function(set_deployment_target target_name)
+if(TLOC_COMPILER_XCODE)
+  set_xcode_property(${target_name} IPHONEOS_DEPLOYMENT_TARGET "6.0")
+endif()
+endfunction()
+
+#------------------------------------------------------------------------------
+# Set Platform Specific Properties
+
+function(set_platform_specific_properties target_name)
+  set_deployment_target(${target_name})
+endfunction()
+
 #------------------------------------------------------------------------------
 # Compiler
 
@@ -102,6 +123,10 @@ function(tloc_add_definitions_strict)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG")
 
+    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 /MTd /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+
     #turn off exceptions for all configurations
     string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
     string(REGEX REPLACE "/GX" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
@@ -176,6 +201,8 @@ endif()
 
 set(USER_PROJECT_TYPE_LIB "lib")
 set(USER_PROJECT_TYPE_EXE "exe")
+set(IOS_DEPLOYMENT_TARGET "6.0")
+set(IOS_DEPLOYMENT_TARGET "6.0" CACHE PATH "This is the lowest OS that you are supporting")
 
 #------------------------------------------------------------------------------
 # MISC
