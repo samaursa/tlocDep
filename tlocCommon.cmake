@@ -32,9 +32,22 @@ endmacro (set_xcode_property)
 #------------------------------------------------------------------------------
 # Set iOS Deployement Target
 
-function(set_deployment_target target_name)
+function(set_deployment_target target_name target_number)
 if(TLOC_COMPILER_XCODE)
-  set_xcode_property(${target_name} IPHONEOS_DEPLOYMENT_TARGET "6.0")
+  set_xcode_property(
+    ${target_name} IPHONEOS_DEPLOYMENT_TARGET ${target_number}
+  )
+endif()
+endfunction()
+
+#------------------------------------------------------------------------------
+# Set iOS Target Device Family
+
+function(set_target_device_family target_name family_name)
+if(TLOC_COMPILER_XCODE)
+  set_target_properties(
+    ${target_name} PROPERTIES XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY ${family_name}
+  )
 endif()
 endfunction()
 
@@ -42,7 +55,8 @@ endfunction()
 # Set Platform Specific Properties
 
 function(set_platform_specific_properties target_name)
-  set_deployment_target(${target_name})
+  set_deployment_target(${target_name} ${IOS_DEPLOYMENT_TARGET})
+  set_target_device_family(${target_name} ${IOS_TARGET_DEVICE_FAMILY})
 endfunction()
 
 #------------------------------------------------------------------------------
@@ -201,8 +215,11 @@ endif()
 
 set(USER_PROJECT_TYPE_LIB "lib")
 set(USER_PROJECT_TYPE_EXE "exe")
-set(IOS_DEPLOYMENT_TARGET "6.0")
-set(IOS_DEPLOYMENT_TARGET "6.0" CACHE PATH "This is the lowest OS that you are supporting")
+
+if(APPLE)
+  set(IOS_DEPLOYMENT_TARGET    6.0 CACHE PATH "This is the lowest OS that you are supporting")
+  set(IOS_TARGET_DEVICE_FAMILY "iPhone/iPad" CACHE PATH "Devices to target with the libraries")
+endif()
 
 #------------------------------------------------------------------------------
 # MISC
