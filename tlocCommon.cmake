@@ -55,8 +55,10 @@ endfunction()
 # Set Platform Specific Properties
 
 function(set_platform_specific_properties target_name)
-  set_deployment_target(${target_name} ${IOS_DEPLOYMENT_TARGET})
-  set_target_device_family(${target_name} ${IOS_TARGET_DEVICE_FAMILY})
+  if(TLOC_PLATFORM_IOS)
+    set_deployment_target(${target_name} ${IOS_DEPLOYMENT_TARGET})
+    set_target_device_family(${target_name} ${IOS_TARGET_DEVICE_FAMILY})
+  endif()
 endfunction()
 
 #------------------------------------------------------------------------------
