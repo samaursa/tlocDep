@@ -134,14 +134,14 @@ function(tloc_add_definitions_strict)
 
   # visual studio compiler and linker flags
   if (TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 /MTd /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG")
 
-    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 /MTd /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /MT /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
 
     #turn off exceptions for all configurations
     string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
@@ -180,9 +180,9 @@ function(tloc_add_definitions)
     )
 
   if(TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "/DTLOC_DEBUG /Od /Gm  /EHsc /RTC1 /MTd /GR /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE         "/DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /EHsc /MT /Gy /GR /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "/DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /EHsc /MT /Gy /GR /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "/DTLOC_DEBUG /Od /Gm  /EHsc /RTC1 ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR /W4 /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE         "/DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /EHsc ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR /W4 /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "/DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /EHsc ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR /W4 /c /Zi /TP" PARENT_SCOPE)
 
     #turn off exceptions for all configurations
     string(REGEX REPLACE "/Zm1000" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
@@ -218,9 +218,25 @@ endif()
 set(USER_PROJECT_TYPE_LIB "lib")
 set(USER_PROJECT_TYPE_EXE "exe")
 
+if(TLOC_COMPILER_MSVC)
+  set(MSVC_RUNTIME_DLL 6.0 CACHE BOOL "Multithreaded DLL or Multithreaded?")
+  if (MSVC_RUNTIME_DLL)
+    message(STATUS "RUNTIME LIBRARY: Multi-threaded (Debug) DLL")
+    set(MSVC_RUNTIME_COMPILER_FLAG_DEBUG    "/MDd")
+    set(MSVC_RUNTIME_COMPILER_FLAG_RELEASE  "/MD")
+  else()
+    message(STATUS "RUNTIME LIBRARY: Multi-threaded (Debug)")
+    set(MSVC_RUNTIME_COMPILER_FLAG_DEBUG    "/MTd")
+    set(MSVC_RUNTIME_COMPILER_FLAG_RELEASE  "/MT")
+  endif()
+else()
+  set(MSVC_RUNTIME_DLL 0)
+endif()
+
+
 if(APPLE)
-  set(IOS_DEPLOYMENT_TARGET    6.0 CACHE PATH "This is the lowest OS that you are supporting")
-  set(IOS_TARGET_DEVICE_FAMILY "iPhone/iPad" CACHE PATH "Devices to target with the libraries")
+  set(IOS_DEPLOYMENT_TARGET    6.0 CACHE STRING "This is the lowest OS that you are supporting")
+  set(IOS_TARGET_DEVICE_FAMILY "iPhone/iPad" CACHE STRING "Devices to target with the libraries")
 endif()
 
 #------------------------------------------------------------------------------
