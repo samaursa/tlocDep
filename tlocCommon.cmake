@@ -281,6 +281,24 @@ set(TLOC_ENABLE_CPP_UNWIND OFF CACHE BOOL "Enables/Disables compiling with excep
 set(TLOC_ENABLE_RTTI       OFF CACHE BOOL "Enables/Disables RTTI")
 set(TLOC_ALLOW_STL         OFF CACHE BOOL "Allow/Disallow the use of std libraries")
 
+if(TLOC_ENABLE_CPP_UNWIND)
+  message(STATUS "EXCEPTIONS: Enabled")
+else()
+  message(STATUS "EXCEPTIONS: Disabled")
+endif()
+
+if(TLOC_ENABLE_RTTI)
+  message(STATUS "RTTI: Enabled")
+else()
+  message(STATUS "RTTI: Disabled")
+endif()
+
+if(TLOC_ENABLE_RTTI)
+  message(STATUS "STL: Allowed")
+else()
+  message(STATUS "STL: Not Allowed")
+endif()
+
 #------------------------------------------------------------------------------
 # MISC
 
