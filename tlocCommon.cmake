@@ -140,12 +140,12 @@ function(tloc_add_definitions_strict)
 
   if (TLOC_ENABLE_CPP_UNWIND)
     set(UNWIND  "/EHsc")
-    add_definitions(-DTLOC_CPPUNWIND_ENABLED)
+    add_definitions(-DTLOC_ENABLE_CPPUNWIND)
   endif()
 
   if (TLOC_ENABLE_RTTI)
     set(RTTI  "/GR")
-    add_definitions(-DTLOC_RTTI_ENABLED)
+    add_definitions(-DTLOC_ENABLE_CPPRTTI)
   endif()
 
   if (TLOC_ALLOW_STL)
@@ -180,12 +180,12 @@ function(tloc_add_definitions_strict)
 
     if (TLOC_ENABLE_CPP_UNWIND)
       set(UNWIND  "")
-      add_definitions(-DTLOC_CPPUNWIND_ENABLED)
+      add_definitions(-DTLOC_ENABLE_CPPUNWIND)
     endif()
 
     if (TLOC_ENABLE_RTTI)
       set(RTTI  "")
-      add_definitions(-DTLOC_RTTI_ENABLED)
+      add_definitions(-DTLOC_ENABLE_CPPRTTI)
     endif()
 
     if (TLOC_ALLOW_STL)
