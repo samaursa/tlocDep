@@ -135,7 +135,7 @@ function(tloc_add_definitions_strict)
   set(RT_DEBUG   ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG})
   set(RT_RELEASE ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE})
 
-  set(UNWIND "/EHsc-")
+  set(UNWIND "")
   set(RTTI   "/GR-")
 
   if (TLOC_ENABLE_CPP_UNWIND)
