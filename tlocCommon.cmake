@@ -132,16 +132,36 @@ function(tloc_add_definitions_strict)
   tloc_revert_definitions()
   tloc_add_common_definitions()
 
+  set(RT_DEBUG   ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG})
+  set(RT_RELEASE ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE})
+
+  set(UNWIND "/EHsc-")
+  set(RTTI   "/GR-")
+
+  if (TLOC_ENABLE_CPP_UNWIND)
+    set(UNWIND  "/EHsc")
+    add_definitions(-DTLOC_CPPUNWIND_ENABLED)
+  endif()
+
+  if (TLOC_ENABLE_RTTI)
+    set(RTTI  "/GR")
+    add_definitions(-DTLOC_RTTI_ENABLED)
+  endif()
+
+  if (TLOC_ALLOW_STL)
+    add_definitions(-DTLOC_USING_STL)
+  endif()
+
   # visual studio compiler and linker flags
   if (TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG")
 
-    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR- /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_DEBUG} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
 
     #turn off exceptions for all configurations
     string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
@@ -154,6 +174,24 @@ function(tloc_add_definitions_strict)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} PARENT_SCOPE)
 
   elseif (TLOC_COMPILER_XCODE) # xcode compiler and linker flags
+
+    set(UNWIND "-fno-exceptions")
+    set(RTTI   "-fno-rtti")
+
+    if (TLOC_ENABLE_CPP_UNWIND)
+      set(UNWIND  "")
+      add_definitions(-DTLOC_CPPUNWIND_ENABLED)
+    endif()
+
+    if (TLOC_ENABLE_RTTI)
+      set(RTTI  "")
+      add_definitions(-DTLOC_RTTI_ENABLED)
+    endif()
+
+    if (TLOC_ALLOW_STL)
+      add_definitions(-DTLOC_USING_STL)
+    endif()
+
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
     # Note that -gdwarf-2 generates debug symbols (dsym files in dwarf standard)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ -fno-exceptions -fno-rtti -Wno-unused-function -g -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
@@ -192,9 +230,9 @@ function(tloc_add_definitions)
 
   elseif(TLOC_COMPILER_XCODE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ -fno-rtti -Wno-unused-function -g" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTLOC_RELEASE -std=c++11 -stdlib=libc++ -fno-rtti -Wno-unused-function" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -std=c++11 -stdlib=libc++ -DTLOC_RELEASE_DEBUGINFO -fno-rtti -Wno-unused-function -g" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ -Wno-unused-function -g" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTLOC_RELEASE -std=c++11 -stdlib=libc++ -Wno-unused-function" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -std=c++11 -stdlib=libc++ -DTLOC_RELEASE_DEBUGINFO -Wno-unused-function -g" PARENT_SCOPE)
   else()
     message("Configuration not applied because compiler is unsupported (or not detected properly)")
   endif()
@@ -238,6 +276,10 @@ if(APPLE)
   set(IOS_DEPLOYMENT_TARGET    6.0 CACHE STRING "This is the lowest OS that you are supporting")
   set(IOS_TARGET_DEVICE_FAMILY "iPhone/iPad" CACHE STRING "Devices to target with the libraries")
 endif()
+
+set(TLOC_ENABLE_CPP_UNWIND OFF CACHE BOOL "Enables/Disables compiling with exceptions")
+set(TLOC_ENABLE_RTTI       OFF CACHE BOOL "Enables/Disables RTTI")
+set(TLOC_ALLOW_STL         OFF CACHE BOOL "Allow/Disallow the use of std libraries")
 
 #------------------------------------------------------------------------------
 # MISC
