@@ -160,7 +160,7 @@ function(tloc_add_definitions_strict)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG")
 
     set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_DEBUG} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
 
     #turn off exceptions for all configurations
