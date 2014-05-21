@@ -138,6 +138,7 @@ function(tloc_add_definitions_strict)
 
   set(UNWIND "")
   set(RTTI   "/GR-")
+  set(CHECKS "")
 
   if (TLOC_ENABLE_CPP_UNWIND)
     set(UNWIND  "/EHsc")
@@ -153,14 +154,18 @@ function(tloc_add_definitions_strict)
     add_definitions(-DTLOC_USING_STL)
   endif()
 
+  if (TLOC_ENABLE_COMPILER_RUNTIME_CHECKS)
+    set(CHECKS "/RTC1")
+  endif()
+
   # visual studio compiler and linker flags
   if (TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG")
 
-    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm /RTC1 ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od /Gm ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm ${RT_RELEASE} ${RTTI} ${UNWIND} /Gy /W4 /WX /c /Zi /TP" PARENT_SCOPE)
 
@@ -218,8 +223,14 @@ function(tloc_add_definitions)
     -DTLOC_USING_STL 
     )
 
+  set(CHECKS "")
+
+  if (TLOC_ENABLE_COMPILER_RUNTIME_CHECKS)
+    set(CHECKS "/RTC1")
+  endif()
+
   if(TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "/DTLOC_DEBUG /Od /Gm  /EHsc /RTC1 ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR /W4 /c /Zi /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "/DTLOC_DEBUG /Od /Gm  /EHsc ${CHECKS} ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR /W4 /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELEASE         "/DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /EHsc ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR /W4 /c /Zi /TP" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "/DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot /Gm /EHsc ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR /W4 /c /Zi /TP" PARENT_SCOPE)
 
@@ -280,6 +291,7 @@ if(APPLE)
   unset(CMAKE_OSX_ARCHITECTURES)
 endif()
 
+set(TLOC_ENABLE_COMPILER_RUNTIME_CHECKS OFF CACHE BOOL "Enables/disables runtime checks (if compile supports it)")
 set(TLOC_ENABLE_CPP_UNWIND OFF CACHE BOOL "Enables/Disables compiling with exceptions")
 set(TLOC_ENABLE_RTTI       OFF CACHE BOOL "Enables/Disables RTTI")
 set(TLOC_ALLOW_STL         OFF CACHE BOOL "Allow/Disallow the use of std libraries")
