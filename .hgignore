@@ -26,6 +26,7 @@ xcuserdata/*
 CMakeFiles/*
 build*/
 include/
+INSTALL/
 *.res
 *.swp
 tlocAssetsPath.h
