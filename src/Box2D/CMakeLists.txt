@@ -97,7 +97,7 @@ set(
   )
 
 #Copy files
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Box2D_v2.2.1/Box2D DESTINATION ${CMAKE_SOURCE_DIR}/include/Box2D FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Box2D_v2.2.1/Box2D DESTINATION ${TLOC_DEP_INSTALL_PATH}/include/Box2D FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
 
 # Add the Box2D library
 include_directories(

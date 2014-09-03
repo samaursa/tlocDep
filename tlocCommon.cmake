@@ -19,9 +19,11 @@ endif()
 if (CMAKE_SIZEOF_VOID_P EQUAL 8)
   message(STATUS "ARCHITECTURE: x64")
   set(ARCH_DIR "x64")
+  set(TLOC_ARCHITECTURE "x64")
 else()
   message(STATUS "ARCHITECTURE: x32")
   set(ARCH_DIR "x86")
+  set(TLOC_ARCHITECTURE "x86")
 endif()
 
 # This little macro lets you set any XCode specific property

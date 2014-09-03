@@ -61,7 +61,7 @@ set(BASE_SRCS
 )
 
 #Copy files
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${FREETYPE_PATH}/include/ DESTINATION ${CMAKE_SOURCE_DIR}/include/FreeType FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${FREETYPE_PATH}/include/ DESTINATION ${TLOC_DEP_INSTALL_PATH}/include/FreeType FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
 
 include_directories(${FREETYPE_PATH}/src/truetype)
 include_directories(${FREETYPE_PATH}/src/sfnt)

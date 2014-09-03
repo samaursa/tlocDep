@@ -10,7 +10,7 @@ set(
   )
 
 #Copy files
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${RAPID_XML_PATH}/ DESTINATION ${CMAKE_SOURCE_DIR}/include/RapidXML FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/${RAPID_XML_PATH}/ DESTINATION ${TLOC_DEP_INSTALL_PATH}/include/RapidXML FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp" PATTERN "*.cpp")
 
 # Add the source
 include_directories(

@@ -23,6 +23,11 @@ add_executable(
 
 # Run the generated executable after build
 add_custom_target(tlocDepVersionTool ALL
-  COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tlocDepVersion
+  COMMAND ${TLOC_DEP_INSTALL_PATH}/bin/${CMAKE_CFG_INTDIR}/tlocDepVersion
    DEPENDS tlocDepVersion
  )
+
+# Copy the version to the INSTALL folder
+add_custom_command(TARGET tlocDepVersionTool POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/src/tlocDepVersion.h" "${TLOC_DEP_INSTALL_PATH}"
+)
