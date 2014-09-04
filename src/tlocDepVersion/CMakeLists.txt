@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  ${CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT})
 
 # Generate tlocFilePaths.h file
 FILE(WRITE ${CMAKE_SOURCE_DIR}/include/tlocDepVersion/tlocVersionFilePath.h "
-#define VERSION_FILE_NAME \"${CMAKE_SOURCE_DIR}/src/tlocDepVersion.h\"
+#define VERSION_FILE_NAME \"${CMAKE_SOURCE_DIR}/INSTALL/tlocDepVersion.h\"
 ")
 
 include_directories(
@@ -26,8 +26,3 @@ add_custom_target(tlocDepVersionTool ALL
   COMMAND ${TLOC_DEP_INSTALL_PATH}/bin/${CMAKE_CFG_INTDIR}/tlocDepVersion
    DEPENDS tlocDepVersion
  )
-
-# Copy the version to the INSTALL folder
-add_custom_command(TARGET tlocDepVersionTool POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_SOURCE_DIR}/src/tlocDepVersion.h" "${TLOC_DEP_INSTALL_PATH}"
-)
