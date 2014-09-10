@@ -15,6 +15,7 @@ list(GET p2list 0 TLOC_BUILD_FOLDER_NAME)
 # CACHE Variables
 
 set(TLOC_DEP_INSTALL_PATH "${CMAKE_SOURCE_DIR}/INSTALL/${TLOC_BUILD_FOLDER_NAME}" CACHE PATH "Install directory for the dependencies")
+set(TLOC_DEP_DISTRIBUTION_BUILD FALSE CACHE BOOL "Distribution builds do not increment version numbers upon builds")
 
 #------------------------------------------------------------------------------
 # Set binary build directories
