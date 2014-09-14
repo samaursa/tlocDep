@@ -4,7 +4,7 @@
 #include <time.h>
 #include <vector>
 
-#include <tlocDepVersion/tlocVersionFilePath.h>
+#include "tlocVersionFilePath.h"
 
 using namespace std;
 

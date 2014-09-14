@@ -8,8 +8,8 @@ set(CMAKE_CXX_FLAGS_RELEASE         ${CMAKE_CXX_FLAGS_RELEASE_DEFAULT})
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  ${CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT})
 
 # Generate tlocFilePaths.h file
-FILE(WRITE ${CMAKE_SOURCE_DIR}/include/tlocDepVersion/tlocVersionFilePath.h "
-#define VERSION_FILE_NAME \"${CMAKE_SOURCE_DIR}/INSTALL/tlocDepVersion.h\"
+FILE(WRITE "tlocVersionFilePath.h" 
+"#define VERSION_FILE_NAME \"${CMAKE_SOURCE_DIR}/INSTALL/tlocDepVersion.h\"
 ")
 
 include_directories(
