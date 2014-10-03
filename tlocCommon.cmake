@@ -142,21 +142,21 @@ function(tloc_add_definitions_strict)
   set(RTTI   "/GR-")
   set(CHECKS "")
 
-  if (TLOC_COMPILER_ENABLE_CPP_UNWIND)
+  if (COMPILER_ENABLE_CPP_UNWIND)
     set(UNWIND  "/EHsc")
     add_definitions(-DTLOC_ENABLE_CPPUNWIND)
   endif()
 
-  if (TLOC_COMPILER_ENABLE_RTTI)
+  if (COMPILER_ENABLE_RTTI)
     set(RTTI  "/GR")
     add_definitions(-DTLOC_ENABLE_CPPRTTI)
   endif()
 
-  if (TLOC_COMPILER_ALLOW_STL)
+  if (COMPILER_ALLOW_STL)
     add_definitions(-DTLOC_USING_STL)
   endif()
 
-  if (TLOC_COMPILER_ENABLE_RUNTIME_CHECKS)
+  if (COMPILER_ENABLE_RUNTIME_CHECKS)
     set(CHECKS "/RTC1")
   endif()
 
@@ -194,17 +194,17 @@ function(tloc_add_definitions_strict)
     set(UNWIND "-fno-exceptions")
     set(RTTI   "-fno-rtti")
 
-    if (TLOC_COMPILER_ENABLE_CPP_UNWIND)
+    if (COMPILER_ENABLE_CPP_UNWIND)
       set(UNWIND  "")
       add_definitions(-DTLOC_ENABLE_CPPUNWIND)
     endif()
 
-    if (TLOC_COMPILER_ENABLE_RTTI)
+    if (COMPILER_ENABLE_RTTI)
       set(RTTI  "")
       add_definitions(-DTLOC_ENABLE_CPPRTTI)
     endif()
 
-    if (TLOC_COMPILER_ALLOW_STL)
+    if (COMPILER_ALLOW_STL)
       add_definitions(-DTLOC_USING_STL)
     endif()
 
