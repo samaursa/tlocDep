@@ -135,6 +135,9 @@ function(tloc_add_definitions_strict)
   tloc_revert_definitions()
   tloc_add_common_definitions()
 
+  #------------------------------------------------------------------------------
+  # compiler flags
+
   set(RT_DEBUG   ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG})
   set(RT_RELEASE ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE})
 
@@ -152,10 +155,6 @@ function(tloc_add_definitions_strict)
     add_definitions(-DTLOC_ENABLE_CPPRTTI)
   endif()
 
-  if (COMPILER_TLOC_COMPILER_ALLOW_STL)
-    add_definitions(-DTLOC_USING_STL)
-  endif()
-
   if (COMPILER_TLOC_COMPILER_ENABLE_RUNTIME_CHECKS)
     set(CHECKS "/RTC1")
   endif()
@@ -168,6 +167,22 @@ function(tloc_add_definitions_strict)
     set(MIN_REBUILD "/Gm")
   endif()
 
+  #------------------------------------------------------------------------------
+  # engine options
+
+  if (OPTIONS_TLOC_ALLOW_STL)
+    add_definitions(-DTLOC_USING_STL)
+  endif()
+
+  if (NOT OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
+    add_definitions(-DTLOC_NO_EXTERN_TEMPLATE)
+  endif()
+
+  if (NOT OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
+    add_definitions(-DTLOC_DISABLE_CUSTOM_NEW_DELETE)
+  endif()
+
+  #------------------------------------------------------------------------------
   # visual studio compiler and linker flags
   if (TLOC_COMPILER_MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} /W4 /WX /c ${PDB} /TP" PARENT_SCOPE)
@@ -189,7 +204,9 @@ function(tloc_add_definitions_strict)
     # The above operations are local, make them parent scope
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} PARENT_SCOPE)
 
-  elseif (TLOC_COMPILER_XCODE) # xcode compiler and linker flags
+  #------------------------------------------------------------------------------
+  # xcode compiler and linker flags
+  elseif (TLOC_COMPILER_XCODE) 
 
     set(UNWIND "-fno-exceptions")
     set(RTTI   "-fno-rtti")
@@ -202,10 +219,6 @@ function(tloc_add_definitions_strict)
     if (COMPILER_TLOC_COMPILER_ENABLE_RTTI)
       set(RTTI  "")
       add_definitions(-DTLOC_ENABLE_CPPRTTI)
-    endif()
-
-    if (COMPILER_TLOC_COMPILER_ALLOW_STL)
-      add_definitions(-DTLOC_USING_STL)
     endif()
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
@@ -247,6 +260,23 @@ function(tloc_add_definitions)
     set(MIN_REBUILD "/Gm")
   endif()
 
+  #------------------------------------------------------------------------------
+  # engine options
+
+  if (OPTIONS_TLOC_ALLOW_STL)
+    add_definitions(-DTLOC_USING_STL)
+  endif()
+
+  if (NOT OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
+    add_definitions(-DTLOC_NO_EXTERN_TEMPLATE)
+  endif()
+
+  if (NOT OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
+    add_definitions(-DTLOC_DISABLE_CUSTOM_NEW_DELETE)
+  endif()
+
+  #------------------------------------------------------------------------------
+  # visual studio compiler and linker flags
   if(TLOC_COMPILER_MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG           "/DTLOC_DEBUG /Od ${MIN_REBUILD} /EHsc ${CHECKS} ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR /W4 /c ${PDB} /TP" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_RELEASE         "/DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL /EHsc ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE} /Gy /GR /W4 /c ${PDB} /TP" PARENT_SCOPE)
@@ -259,6 +289,8 @@ function(tloc_add_definitions)
     # The above operations are local, make them parent scope
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} PARENT_SCOPE)
 
+  #------------------------------------------------------------------------------
+  # xcode compiler and linker flags
   elseif(TLOC_COMPILER_XCODE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ -Wno-unused-function -g" PARENT_SCOPE)
@@ -313,10 +345,19 @@ endif()
 set(COMPILER_TLOC_COMPILER_ENABLE_RUNTIME_CHECKS OFF CACHE BOOL    "Enables/disables runtime checks (if compile supports it)")
 set(COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND     OFF CACHE BOOL    "Enables/Disables compiling with exceptions")
 set(COMPILER_TLOC_COMPILER_ENABLE_RTTI           OFF CACHE BOOL    "Enables/Disables RTTI")
-set(COMPILER_TLOC_COMPILER_ALLOW_STL             OFF CACHE BOOL    "Allow/Disallow the use of std libraries")
 
-set(DISTRIBUTION_BUILD             FALSE CACHE BOOL  "Distribution builds do not increment version numbers on builds and install relative paths (e.g. for assets)")
-set(DISTRIBUTION_FULL_SOURCE       FALSE CACHE BOOL  "Distribute full source with your build")
+set(OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE          ON CACHE BOOL     "Extern template reduces compile times but require more housekeeping.")
+set(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE        ON CACHE BOOL    "Custom new/delete allows the engine to track memory errors.")
+set(OPTIONS_TLOC_ALLOW_STL                       OFF CACHE BOOL    "Allow/Disallow the use of stl library")
+
+set(DISTRIBUTION_BUILD                           FALSE CACHE BOOL  "Distribution builds do not increment version numbers on builds and install relative paths (e.g. for assets)")
+set(DISTRIBUTION_FULL_SOURCE                     FALSE CACHE BOOL  "Distribute full source with your build")
+
+#------------------------------------------------------------------------------
+# Common Variables Settings
+
+#------------------------------------------------------------------------------
+# Common Variables Messages
 
 if(COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND)
   message(STATUS "EXCEPTIONS: Enabled")
@@ -334,6 +375,19 @@ if(COMPILER_TLOC_COMPILER_ENABLE_RTTI)
   message(STATUS "STL: Allowed")
 else()
   message(STATUS "STL: Not Allowed")
+endif()
+
+if(OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
+  message(STATUS "Extern Template: Enabled")
+else()
+  message(STATUS "Extern Template: Disabled")
+endif()
+
+if(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
+  message(STATUS "Custom new/delete: Enabled")
+else()
+  message(STATUS "Custom new/delete: Disabling... FAILED (user currently not allowed to over-ride this feature)")
+  set(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE ON)
 endif()
 
 #------------------------------------------------------------------------------
