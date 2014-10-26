@@ -1,5 +1,25 @@
+#******************************************************************************
+#******************************************************************************
+# Useful functions 
+#******************************************************************************
+#******************************************************************************
+
 #------------------------------------------------------------------------------
+# get leaf folder of path
+
+function(tloc_get_leaf_folder_name full_path name_out)
+  string(REPLACE "/" ";" p2list "${full_path}")
+  list(REVERSE p2list)
+  list(GET p2list 0 leaf_folder)
+  set(${name_out} ${leaf_folder} PARENT_SCOPE)
+endfunction()
+
+
+#******************************************************************************
+#******************************************************************************
 # Platform
+#******************************************************************************
+#******************************************************************************
 
 set(TLOC_CURRENT_PLATFORM ${CMAKE_SYSTEM_NAME})
 message(STATUS "PLATFORM: ${TLOC_CURRENT_PLATFORM}")
@@ -64,8 +84,11 @@ function(set_platform_specific_properties target_name)
   endif()
 endfunction()
 
-#------------------------------------------------------------------------------
+#******************************************************************************
+#******************************************************************************
 # Compiler
+#******************************************************************************
+#******************************************************************************
 
 set(TLOC_COMPILER_C11 1)
 
@@ -107,6 +130,7 @@ set(TLOC_CXX_FLAGS_DEBUG_DEFAULT            ${CMAKE_CXX_FLAGS_DEBUG})
 set(TLOC_CXX_FLAGS_RELEASE_DEFAULT          ${CMAKE_CXX_FLAGS_RELEASE})
 set(TLOC_CXX_FLAGS_RELWITHDEBINFO_DEFAULT   ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
 
+#------------------------------------------------------------------------------
 # default definitions
 function(tloc_revert_definitions)
   set(CMAKE_CXX_FLAGS                ${CMAKE_CXX_FLAGS_DEFAULT} PARENT_SCOPE)
@@ -115,6 +139,7 @@ function(tloc_revert_definitions)
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO ${CMAKE_CXX_FLAGS_RELWITHDEBINFO_DEFAULT} PARENT_SCOPE)
 endfunction()
 
+#------------------------------------------------------------------------------
 # common definitions
 function(tloc_add_common_definitions)
   # C++03 is currently supported (support will be dropped soon)
@@ -126,6 +151,26 @@ function(tloc_add_common_definitions)
   if (TLOC_COMPILER_MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
   endif()
+
+  #------------------------------------------------------------------------------
+  # engine options
+
+  if (OPTIONS_TLOC_ALLOW_STL)
+    add_definitions(-DTLOC_USING_STL)
+  endif()
+
+  if (NOT OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
+    add_definitions(-DTLOC_NO_EXTERN_TEMPLATE)
+  endif()
+
+  if (NOT OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
+    add_definitions(-DTLOC_DISABLE_CUSTOM_NEW_DELETE)
+  endif()
+
+  if (OPTIONS_TLOC_ENABLE_MEMORY_TRACKING)
+    add_definitions(-DTLOC_ENABLE_MEMORY_TRACKING)
+  endif()
+
 endfunction()
 
 #------------------------------------------------------------------------------
@@ -165,21 +210,6 @@ function(tloc_add_definitions_strict)
   else()
     set(PDB "/Zi")
     set(MIN_REBUILD "/Gm")
-  endif()
-
-  #------------------------------------------------------------------------------
-  # engine options
-
-  if (OPTIONS_TLOC_ALLOW_STL)
-    add_definitions(-DTLOC_USING_STL)
-  endif()
-
-  if (NOT OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
-    add_definitions(-DTLOC_NO_EXTERN_TEMPLATE)
-  endif()
-
-  if (NOT OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
-    add_definitions(-DTLOC_DISABLE_CUSTOM_NEW_DELETE)
   endif()
 
   #------------------------------------------------------------------------------
@@ -261,21 +291,6 @@ function(tloc_add_definitions)
   endif()
 
   #------------------------------------------------------------------------------
-  # engine options
-
-  if (OPTIONS_TLOC_ALLOW_STL)
-    add_definitions(-DTLOC_USING_STL)
-  endif()
-
-  if (NOT OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
-    add_definitions(-DTLOC_NO_EXTERN_TEMPLATE)
-  endif()
-
-  if (NOT OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
-    add_definitions(-DTLOC_DISABLE_CUSTOM_NEW_DELETE)
-  endif()
-
-  #------------------------------------------------------------------------------
   # visual studio compiler and linker flags
   if(TLOC_COMPILER_MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG           "/DTLOC_DEBUG /Od ${MIN_REBUILD} /EHsc ${CHECKS} ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG} /GR /W4 /c ${PDB} /TP" PARENT_SCOPE)
@@ -349,6 +364,7 @@ set(COMPILER_TLOC_COMPILER_ENABLE_RTTI           OFF CACHE BOOL    "Enables/Disa
 set(OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE          ON CACHE BOOL     "Extern template reduces compile times but require more housekeeping.")
 set(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE        ON CACHE BOOL    "Custom new/delete allows the engine to track memory errors.")
 set(OPTIONS_TLOC_ALLOW_STL                       OFF CACHE BOOL    "Allow/Disallow the use of stl library")
+set(OPTIONS_TLOC_ENABLE_MEMORY_TRACKING          TRUE CACHE BOOL    "Disabling the tracker will increase debugging performance. Tracker is ALWAYS DISABLED in Release.")
 
 set(DISTRIBUTION_BUILD                           FALSE CACHE BOOL  "Distribution builds do not increment version numbers on builds and install relative paths (e.g. for assets)")
 set(DISTRIBUTION_FULL_SOURCE                     FALSE CACHE BOOL  "Distribute full source with your build")
@@ -388,6 +404,12 @@ if(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE)
 else()
   message(STATUS "Custom new/delete: Disabling... FAILED (user currently not allowed to over-ride this feature)")
   set(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE ON)
+endif()
+
+if(OPTIONS_TLOC_ENABLE_MEMORY_TRACKING)
+  message(STATUS "Memory Tracking: Enabled")
+else()
+  message(STATUS "Memory Tracking: Disabled")
 endif()
 
 #------------------------------------------------------------------------------

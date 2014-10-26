@@ -1,15 +1,20 @@
 cmake_minimum_required(VERSION 2.8)
 
+#------------------------------------------------------------------------------
+# Start CMake project
 set(TLOC_DEP_NAME "tlocDep" CACHE STRING "You may change the name based on build configurations")
 project(${TLOC_DEP_NAME})
-
-set(TLOC_DEP_VERSION 0.1)
+include(tlocCommon.cmake)
 
 #------------------------------------------------------------------------------
-# Grab the build path
-string(REPLACE "/" ";" p2list "${PROJECT_BINARY_DIR}")
-list(REVERSE p2list)
-list(GET p2list 0 TLOC_BUILD_FOLDER_NAME)
+# Over-ride names if not already set by user
+tloc_get_leaf_folder_name(${CMAKE_BINARY_DIR} TLOC_BUILD_FOLDER_NAME)
+if(${TLOC_DEP_NAME} STREQUAL "tlocDep")
+  set(TLOC_DEP_NAME "tlocDep_${TLOC_BUILD_FOLDER_NAME}" CACHE STRING "You may change the name based on build configurations" FORCE)
+  project(${TLOC_DEP_NAME})
+endif()
+
+set(TLOC_DEP_VERSION 0.1)
 
 #------------------------------------------------------------------------------
 # CACHE Variables
@@ -35,7 +40,5 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/tlocCommon.cmake
 
 #------------------------------------------------------------------------------
 # Start preparing the project
-
-include(tlocCommon.cmake)
 
 add_subdirectory(src)
