@@ -343,8 +343,8 @@ endif()
 #------------------------------------------------------------------------------
 # Common variables that are (should be) global
 
-set(USER_PROJECT_TYPE_LIB "lib")
-set(USER_PROJECT_TYPE_EXE "exe")
+set(SOLUTION_PROJECT_TYPE_LIB "lib")
+set(SOLUTION_PROJECT_TYPE_EXE "exe")
 
 if(TLOC_COMPILER_MSVC)
   set(COMPILER_TLOC_COMPILER_MSVC_RUNTIME_DLL 6.0 OFF CACHE BOOL "Multithreaded DLL or Multithreaded?")
