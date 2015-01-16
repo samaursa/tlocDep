@@ -363,7 +363,7 @@ endif()
 
 
 if(APPLE)
-  set(IOS_DEPLOYMENT_TARGET    6.0 CACHE STRING "This is the lowest OS that you are supporting")
+  set(IOS_DEPLOYMENT_TARGET    7.0 CACHE STRING "This is the lowest OS that you are supporting")
   set(IOS_TARGET_DEVICE_FAMILY "iPhone/iPad" CACHE STRING "Devices to target with the libraries")
   set(IOS_CODE_SIGN_IDENTITY   "iPhone Developer" CACHE STRING "Code signing identity goes here")
   unset(CMAKE_OSX_ARCHITECTURES)
