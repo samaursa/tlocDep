@@ -142,14 +142,18 @@ endfunction()
 #------------------------------------------------------------------------------
 # common definitions
 function(tloc_add_common_definitions)
+
+  #------------------------------------------------------------------------------
   # C++03 is currently supported (support will be dropped soon)
   if (NOT TLOC_COMPILER_C11)
     add_definitions(-DTLOC_CXX03)
   endif()
 
+  #------------------------------------------------------------------------------
   # visual studio compiler flags
   if (TLOC_COMPILER_MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+    add_definitions(-D_NO_DEBUG_HEAP=1)
   endif()
 
   #------------------------------------------------------------------------------
