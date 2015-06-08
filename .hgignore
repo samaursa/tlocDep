@@ -29,5 +29,6 @@ include/
 INSTALL/
 *.res
 *.swp
+.idea/
 tlocAssetsPath.h
 tlocVersionFilePath.h

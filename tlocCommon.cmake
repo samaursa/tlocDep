@@ -193,6 +193,7 @@ function(tloc_add_definitions_strict)
   set(UNWIND "")
   set(RTTI   "/GR-")
   set(CHECKS "")
+  set(WARN_ERR "")
 
   if (COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND)
     set(UNWIND  "/EHsc")
@@ -212,6 +213,10 @@ function(tloc_add_definitions_strict)
     set(MPC "/MP")
   endif()
 
+  if (COMPILER_TLOC_COMPILER_TREAT_WARN_AS_ERR)
+    set(WARN_ERR "/WX")
+  endif()
+
   if (DISTRIBUTION_BUILD)
     set(PDB "/Z7")
     set(MIN_REBUILD "")
@@ -225,14 +230,14 @@ function(tloc_add_definitions_strict)
   #------------------------------------------------------------------------------
   # visual studio compiler and linker flags
   if (TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} ${MPC} /W4 /WX /c ${PDB} /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 /WX /c ${PDB} /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 /WX /c ${PDB} /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} ${MPC} /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" PARENT_SCOPE)
 
-    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} ${MPC} /W4 /WX /c ${PDB} /TC" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 /WX /c ${PDB} /TC" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 /WX /c ${PDB} /TC" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} ${MPC} /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
 
     #turn off exceptions for all configurations
     string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
@@ -377,6 +382,7 @@ set(COMPILER_TLOC_COMPILER_ENABLE_RUNTIME_CHECKS OFF CACHE BOOL    "Enables/disa
 set(COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND     OFF CACHE BOOL    "Enables/Disables compiling with exceptions")
 set(COMPILER_TLOC_COMPILER_ENABLE_RTTI           OFF CACHE BOOL    "Enables/Disables RTTI")
 set(COMPILER_TLOC_COMPILER_ENABLE_MULTI_PROCESSOR_COMPILE ON CACHE BOOL    "Some compilers don't support this option")
+set(COMPILER_TLOC_COMPILER_TREAT_WARN_AS_ERR              ON CACHE BOOL    "Some compilers don't support this option")
 
 set(OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE          ON CACHE BOOL     "Extern template reduces compile times but require more housekeeping.")
 set(OPTIONS_TLOC_ENABLE_CUSTOM_NEW_DELETE        ON CACHE BOOL    "Custom new/delete allows the engine to track memory errors.")
