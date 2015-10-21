@@ -198,6 +198,8 @@ function(tloc_add_definitions_strict)
   if (COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND)
     set(UNWIND  "/EHsc")
     add_definitions(-DTLOC_ENABLE_CPPUNWIND)
+  else()
+    add_definitions(-D_HAS_EXCEPTIONS=0)
   endif()
 
   if (COMPILER_TLOC_COMPILER_ENABLE_RTTI)
