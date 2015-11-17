@@ -178,8 +178,7 @@ function(tloc_add_common_definitions)
 endfunction()
 
 #------------------------------------------------------------------------------
-# Strict compiler flags required by the engine. This disables RTTI and 
-# Exceptions handling
+# Strict compiler flags required by the engine. 
 function(tloc_add_definitions_strict)
   tloc_revert_definitions()
   tloc_add_common_definitions()
@@ -190,22 +189,8 @@ function(tloc_add_definitions_strict)
   set(RT_DEBUG   ${MSVC_RUNTIME_COMPILER_FLAG_DEBUG})
   set(RT_RELEASE ${MSVC_RUNTIME_COMPILER_FLAG_RELEASE})
 
-  set(UNWIND "")
-  set(RTTI   "/GR-")
   set(CHECKS "")
   set(WARN_ERR "")
-
-  if (COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND)
-    set(UNWIND  "/EHsc")
-    add_definitions(-DTLOC_ENABLE_CPPUNWIND)
-  else()
-    add_definitions(-D_HAS_EXCEPTIONS=0)
-  endif()
-
-  if (COMPILER_TLOC_COMPILER_ENABLE_RTTI)
-    set(RTTI  "/GR")
-    add_definitions(-DTLOC_ENABLE_CPPRTTI)
-  endif()
 
   if (COMPILER_TLOC_COMPILER_ENABLE_RUNTIME_CHECKS)
     set(CHECKS "/RTC1")
@@ -232,18 +217,14 @@ function(tloc_add_definitions_strict)
   #------------------------------------------------------------------------------
   # visual studio compiler and linker flags
   if (TLOC_COMPILER_MSVC)
-    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} ${MPC} /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${MPC} /EHsc /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${MPC} /Gy /EHsc /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${MPC} /Gy /EHsc /W4 ${WARN_ERR} /c ${PDB} /TP" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE  "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /LTCG" PARENT_SCOPE)
 
-    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${RTTI} ${UNWIND} ${MPC} /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
-    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${RTTI} ${UNWIND} ${MPC} /Gy /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
-
-    #turn off exceptions for all configurations
-    string(REGEX REPLACE "/EHsc" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
-    string(REGEX REPLACE "/GX" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
+    set(CMAKE_C_FLAGS_DEBUG           "-DTLOC_DEBUG /Od ${MIN_REBUILD} ${CHECKS} ${RT_DEBUG} ${MPC} /EHsc /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELEASE         "-DTLOC_RELEASE /O2 /Ob2 /Oi /Ot /GL ${RT_RELEASE} ${MPC} /Gy /EHsc /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
+    set(CMAKE_C_FLAGS_RELWITHDEBINFO  "-DTLOC_RELEASE_DEBUGINFO /O2 /Ob2 /Oi /Ot ${MIN_REBUILD} ${RT_RELEASE} ${MPC} /Gy /EHsc /W4 ${WARN_ERR} /c ${PDB} /TC" PARENT_SCOPE)
 
     # cmake bug (adds /Zm1000 when it is not needed): http://public.kitware.com/Bug/view.php?id=13867
     string(REGEX REPLACE "/Zm1000" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} )
@@ -255,24 +236,11 @@ function(tloc_add_definitions_strict)
   # xcode compiler and linker flags
   elseif (TLOC_COMPILER_XCODE) 
 
-    set(UNWIND "-fno-exceptions")
-    set(RTTI   "-fno-rtti")
-
-    if (COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND)
-      set(UNWIND  "")
-      add_definitions(-DTLOC_ENABLE_CPPUNWIND)
-    endif()
-
-    if (COMPILER_TLOC_COMPILER_ENABLE_RTTI)
-      set(RTTI  "")
-      add_definitions(-DTLOC_ENABLE_CPPRTTI)
-    endif()
-
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -x objective-c++" PARENT_SCOPE)
     # Note that -gdwarf-2 generates debug symbols (dsym files in dwarf standard)
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++ ${UNWIND} ${RTTI} -Wno-unused-function -g -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTLOC_RELEASE -std=c++11 -stdlib=libc++ ${UNWIND} ${RTTI} -Wno-unused-function -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -std=c++11 -stdlib=libc++ -DTLOC_RELEASE_DEBUGINFO ${UNWIND} ${RTTI} -Wno-unused-function -g -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DTLOC_DEBUG -std=c++11 -stdlib=libc++  -Wno-unused-function -g -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DTLOC_RELEASE -std=c++11 -stdlib=libc++ -Wno-unused-function -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -std=c++11 -stdlib=libc++ -DTLOC_RELEASE_DEBUGINFO -Wno-unused-function -g -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -std=c++11 -stdlib=libc++ -framework Foundation -framework OpenGLES -framework AudioToolbox -framework CoreGraphics -framework QuartzCore -framework UIKit -framework OpenAL -Wall -Wno-long-long -pedantic" PARENT_SCOPE)
   else()
     message(WARNING "Unsupported compiler being used. Default compiler settings will be applied")
@@ -280,18 +248,10 @@ function(tloc_add_definitions_strict)
 endfunction()
 
 #------------------------------------------------------------------------------
-# Loose compiler flags required by projects working with libraries that require
-# RTTI and/or Exceptions to be enabled. 
+# Loose compiler flags required by projects working with external libraries
 function(tloc_add_definitions)
   tloc_revert_definitions()
   tloc_add_common_definitions()
-
-  # non-strict definictions includes exceptions, rtti and stl
-  add_definitions(
-    -DTLOC_ENABLE_CPPUNWIND 
-    -DTLOC_ENABLE_CPPRTTI 
-    -DTLOC_USING_STL 
-    )
 
   set(CHECKS "")
 
@@ -381,8 +341,6 @@ if(APPLE)
 endif()
 
 set(COMPILER_TLOC_COMPILER_ENABLE_RUNTIME_CHECKS OFF CACHE BOOL    "Enables/disables runtime checks (if compile supports it)")
-set(COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND     OFF CACHE BOOL    "Enables/Disables compiling with exceptions")
-set(COMPILER_TLOC_COMPILER_ENABLE_RTTI           OFF CACHE BOOL    "Enables/Disables RTTI")
 set(COMPILER_TLOC_COMPILER_ENABLE_MULTI_PROCESSOR_COMPILE ON CACHE BOOL    "Some compilers don't support this option")
 set(COMPILER_TLOC_COMPILER_TREAT_WARN_AS_ERR              ON CACHE BOOL    "Some compilers don't support this option")
 
@@ -399,24 +357,6 @@ set(DISTRIBUTION_FULL_SOURCE                     FALSE CACHE BOOL  "Distribute f
 
 #------------------------------------------------------------------------------
 # Common Variables Messages
-
-if(COMPILER_TLOC_COMPILER_ENABLE_CPP_UNWIND)
-  message(STATUS "EXCEPTIONS: Enabled")
-else()
-  message(STATUS "EXCEPTIONS: Disabled")
-endif()
-
-if(COMPILER_TLOC_COMPILER_ENABLE_RTTI)
-  message(STATUS "RTTI: Enabled")
-else()
-  message(STATUS "RTTI: Disabled")
-endif()
-
-if(COMPILER_TLOC_COMPILER_ENABLE_RTTI)
-  message(STATUS "STL: Allowed")
-else()
-  message(STATUS "STL: Not Allowed")
-endif()
 
 if(OPTIONS_TLOC_ENABLE_EXTERN_TEMPLATE)
   message(STATUS "Extern Template: Enabled")
